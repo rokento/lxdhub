@@ -1,5 +1,5 @@
 <template>
-    <div id="dplayer" style="height: 400px;width: 800px"></div>
+    <div id="dplayer" style="height: 30%;width: 100%"></div>
 </template>
 
 <script>
@@ -14,11 +14,12 @@
                 loop: false,
                 screenshot: true, //截屏
                 hotkey: false,
-                logo: '/public/assets/images/server/favicon.ico',
+                //logo: '/public/assets/images/server/favicon.ico',
                 video: {  //视频源 包含不同分辨率源
                     quality: [{
                         name: '普清',
-                        url: 'https://1251316161.vod2.myqcloud.com/5f6ddb64vodsh1251316161/e67586ef5285890813381349247/qA2M7T3UetgA.mp4'
+                        //url: 'https://1251316161.vod2.myqcloud.com/5f6ddb64vodsh1251316161/e67586ef5285890813381349247/qA2M7T3UetgA.mp4'
+                        url: this.$route.params.source
                     }],
                     defaultQuality: 0,
                     pic: '',

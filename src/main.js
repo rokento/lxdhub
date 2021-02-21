@@ -5,6 +5,8 @@ import store from './store'
 
 import list  from 'vant/lib/list'
 import cell from 'vant/lib/cell'
+
+
 createApp(App)
     .use(store)
     .use(router)

@@ -1,15 +1,15 @@
 <template>
 
-    <div id="vcrad">
+    <div id="vcrad" @click="toPlayer(vinfo)">
         <div class="vleft">
             <img style="width: 100%;height: 99%;border-radius: 5px"
-                 :src="vinfo.madia">
+                 :src="this.$store.state.host+'/media/pic/'+vinfo.ml+'/'+vinfo.media">
         </div>
         <div class="vright">
             <h3>{{vinfo.title}}</h3>
-            <div class="sm"><span>{{vinfo.dosc}}</span></div>
+            <div class="sm"><span>{{vinfo.sm}}</span></div>
             <br>
-            <div class="filenumber"><span>文件数:{{vinfo.fileNum}} &nbsp;&nbsp;&nbsp;</span></div>
+            <div class="filenumber"><span>文件大小:{{vinfo.fileSize}} &nbsp;&nbsp;&nbsp;</span></div>
         </div>
     </div>
     <div style="height: 3px"></div>
@@ -19,14 +19,27 @@
 <script>
     export default {
         name: "VideoDetail",
-        props:['vinfo']
+        props:['vinfo'],
+        methods: {
+            toPlayer(value){
+                let source = this.$store.state.host+'/video/player/'+value.ml+'/'+value.videoName
+                this.$router.push(
+                    {
+                        name:'Player',
+                        params: {
+                            source: source
+                        }
+                    }
+                )
+            }
+        }
     }
 </script>
 
 <style>
 
     #vcrad{
-        width: 98%;
+        width: 100%;
         height: 100px;
         padding: 0;
         margin: 0;
